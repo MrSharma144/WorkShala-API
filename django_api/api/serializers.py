@@ -9,6 +9,7 @@ class RegisterSerlizer(serializers.ModelSerializer):
         model = User
         fields = ['email','username','password']
 
+
     def validate(self,attrs):
         email=attrs.get('email','')
         username=attrs.get('username','')
@@ -19,6 +20,7 @@ class RegisterSerlizer(serializers.ModelSerializer):
         return attrs
     
 
-    def crete(self,validated_data):
+    def create(self,validated_data):
+        print(User)
         return User.objects.create_user(**validated_data)
         

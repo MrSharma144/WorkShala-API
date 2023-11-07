@@ -9,7 +9,7 @@ from rest_framework import generics,status
 
 
 
-# Create your views here.
+ #Create your views here.
 class RegisterView(generics.GenericAPIView):
     
     serializer_class = RegisterSerlizer
