@@ -27,7 +27,6 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-AUTH_USER_MODEL = 'api.User'
 
 
 # Application definition
@@ -70,6 +69,7 @@ TEMPLATES = [
         },
     },
 ]
+AUTH_USER_MODEL = 'api.User'
 
 WSGI_APPLICATION = 'django_api.wsgi.application'
 
