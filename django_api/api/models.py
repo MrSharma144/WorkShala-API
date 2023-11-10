@@ -20,7 +20,7 @@ class UserManager(BaseUserManager):
 
 
 
-   def create_superuseruser(self,username,email,password = None):
+   def create_superuser(self,username,email,password = None):
 
 
         if password is None:
@@ -51,7 +51,7 @@ class User(AbstractBaseUser,PermissionsMixin):
 
      def __str__(self):
           return self.email
-     
+     @property
      def tokens(self):
           refresh = RefreshToken.for_user(self)
           return {
