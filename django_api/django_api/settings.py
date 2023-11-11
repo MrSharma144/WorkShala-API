@@ -14,6 +14,7 @@ from pathlib import Path
 from dotenv import load_dotenv
 load_dotenv()
 import os
+import dj_database_url
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -42,6 +43,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
+    'rest_framework_simplejwt',
     'drf_yasg',
     'api',
 
@@ -90,6 +92,9 @@ DATABASES = {
         'PASSWORD' : os.getenv('DATABASE_PASSWORD'),
     }
 }
+
+DATABASES['default'] = dj_database_url.parse("postgres://test1_4iuc_user:EJWtEsw03xpaUF0UpQIwEODsCi6FgJmo@dpg-cl6dsak72pts73fuuad0-a.oregon-postgres.render.com/test1_4iuc")
+
 
 
 REST_FRAMEWORK = {
