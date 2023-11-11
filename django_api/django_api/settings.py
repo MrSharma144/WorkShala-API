@@ -27,10 +27,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-2s_csjv=!lmp&-18x$n-98-g)lw@nq)o3j1yue#3dt3mr*q6-*'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = os.environ.get('DEBUG', 'True')== "True"
 
 ALLOWED_HOSTS = ['127.0.0.1', 'loacalhost', "workshala-api.onrender.com"]
-
+ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -84,14 +84,19 @@ WSGI_APPLICATION = 'django_api.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': os.getenv('DATABASE_NAME'),
-        'USER' : os.getenv('DATABASE_USERNAME'),
-        'PASSWORD' : os.getenv('DATABASE_PASSWORD'),
+if not DEBUG:
+    DATABASES= {
+        "default": dj_database_url.parse(os.environ.get("DATABASE_URL"))
     }
-}
+else:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.postgresql',
+            'NAME': os.getenv('DATABASE_NAME'),
+            'USER' : os.getenv('DATABASE_USERNAME'),
+            'PASSWORD' : os.getenv('DATABASE_PASSWORD'),
+        }
+    }
 
 DATABASES['default'] = dj_database_url.parse("postgres://test1_4iuc_user:EJWtEsw03xpaUF0UpQIwEODsCi6FgJmo@dpg-cl6dsak72pts73fuuad0-a.oregon-postgres.render.com/test1_4iuc")
 
