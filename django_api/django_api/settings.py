@@ -29,7 +29,7 @@ SECRET_KEY = 'django-insecure-2s_csjv=!lmp&-18x$n-98-g)lw@nq)o3j1yue#3dt3mr*q6-*
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1', 'loacalhost', "workshala-api.onrender.com"]
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost', "workshala-api.onrender.com"]
 
 
 
@@ -45,12 +45,15 @@ INSTALLED_APPS = [
     'rest_framework',
     'rest_framework_simplejwt',
     'drf_yasg',
+    'corsheaders',
     'api',
 
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    "whitenoise.middleware.WhiteNoiseMiddleware",
+    'corsheaders.middleware.CorsMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -161,3 +164,6 @@ EMAIL_HOST= 'smtp.gmail.com'
 EMAIL_PORT=587
 EMAIL_HOST_USER = os.getenv('EMAIL_HOST_USER')
 EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD')
+
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+CORS_ORIGIN_ALLOW_ALL=True
