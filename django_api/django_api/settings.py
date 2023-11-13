@@ -63,7 +63,7 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'django_api.urls'
-
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO','https')
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
@@ -165,5 +165,4 @@ EMAIL_PORT=587
 EMAIL_HOST_USER = os.getenv('EMAIL_HOST_USER')
 EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD')
 
-SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 CORS_ORIGIN_ALLOW_ALL=True
