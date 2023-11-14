@@ -9,3 +9,7 @@ from .serializers import InternshipSerializer
 class InternshipListCreateView(generics.ListCreateAPIView):
     queryset = Internship.objects.all()
     serializer_class = InternshipSerializer
+
+class InternshipDetailView(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Internship.objects.all()
+    serializer_class = InternshipSerializer
