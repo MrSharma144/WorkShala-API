@@ -21,11 +21,12 @@ class Internship(models.Model):
         return self.internship_name
 
 class ApplyIntern(models.Model):
-    Internship_id = models.ForeignKey(Internship, on_delete=models.CASCADE)
+    internship_id = models.ForeignKey(Internship, on_delete=models.CASCADE)
     username = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     Graduation_name = models.CharField(max_length=255)
-    year_of_study = models.IntegerField()
+    year_of_study = models.IntegerField(default=1)
     cover_letter = models.TextField()
+    skills = models.TextField()
     # resume = models.FileField(upload_to='uploads/')
     applied_at = models.DateTimeField(auto_now_add=True)
 
