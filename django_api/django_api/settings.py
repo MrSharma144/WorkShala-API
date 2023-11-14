@@ -88,20 +88,12 @@ WSGI_APPLICATION = 'django_api.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
-if not DEBUG:
-    DATABASES= {
-        "default": dj_database_url.parse(os.getenv("DATABASE_URL"))
-    }
-else:
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.postgresql',
-            'NAME': os.getenv('DATABASE_NAME'),
-            'USER' : os.getenv('DATABASE_USERNAME'),
-            'PASSWORD' : os.getenv('DATABASE_PASSWORD'),
-        }
-    }
 
+DATABASES= {
+    "default": dj_database_url.parse(os.getenv("DATABASE_URL"))
+}
+
+    
 
 
 
