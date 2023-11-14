@@ -21,6 +21,12 @@ class InternshipApplicationListCreateView(generics.ListCreateAPIView):
     queryset = ApplyIntern.objects.all()
     serializer_class = InternshipApplicationSerializer
 
+class ApplyInternDetailView(generics.RetrieveUpdateDestroyAPIView):
+    queryset = ApplyIntern.objects.all()
+    serializer_class = InternshipApplicationSerializer
+
+
+
 
 # class ResumeUploadView(APIView):
 #     def post(self, request, *args, **kwargs):
