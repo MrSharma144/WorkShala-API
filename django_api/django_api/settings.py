@@ -102,7 +102,6 @@ else:
         }
     }
 
-DATABASES['default'] = dj_database_url.parse("postgres://test1_4iuc_user:EJWtEsw03xpaUF0UpQIwEODsCi6FgJmo@dpg-cl6dsak72pts73fuuad0-a.oregon-postgres.render.com/test1_4iuc")
 
 
 
@@ -167,3 +166,6 @@ EMAIL_HOST_USER = os.getenv('EMAIL_HOST_USER')
 EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD')
 
 CORS_ORIGIN_ALLOW_ALL=True
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
