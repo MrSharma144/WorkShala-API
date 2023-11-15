@@ -30,7 +30,7 @@ SECRET_KEY = 'django-insecure-2s_csjv=!lmp&-18x$n-98-g)lw@nq)o3j1yue#3dt3mr*q6-*
 DEBUG = True
 
 ALLOWED_HOSTS = ['127.0.0.1', 'localhost', "workshala-api.onrender.com"]
-
+ALLOWED_HOSTS =[]
 
 
 # Application definition
