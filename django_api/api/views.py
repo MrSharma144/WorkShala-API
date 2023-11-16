@@ -2,10 +2,10 @@ from collections import UserDict
 from rest_framework.response import responses
 from django.shortcuts import render
 from rest_framework.response import Response
-from .serializers import RegisterSerlizer,EmailVerificationSerializer,LoginSerializer
+from .serializers import RegisterSerlizer,EmailVerificationSerializer,LoginSerializer,ProfileSerializer
 from rest_framework import generics,status,views
 from rest_framework_simplejwt.tokens import RefreshToken
-from .models import User
+from .models import User,Profile
 from .utils import Util
 from django.contrib.sites.shortcuts import get_current_site
 from django.urls import reverse
@@ -86,5 +86,13 @@ class VerifyEmail(views.APIView):
         except jwt.exceptions.DecodeError as identifier:
             return Response({'error': 'Invalid Token'},status=status.HTTP_400_BAD_REQUEST)
 
-        
+
+
+class ProfileListCreateAPIView(generics.ListCreateAPIView):
+    queryset = Profile.objects.all()
+    serializer_class = ProfileSerializer
+
+class ProfileDetailAPIView(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Profile.objects.all()
+    serializer_class = ProfileSerializer
 

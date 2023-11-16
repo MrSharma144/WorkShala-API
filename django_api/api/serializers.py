@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import User
+from .models import User,Profile
 from django.contrib import auth
 from rest_framework.exceptions import AuthenticationFailed
 
@@ -69,5 +69,10 @@ class EmailVerificationSerializer(serializers.ModelSerializer):
     class Meta:
         model=User
         fields = ['token']
+
+class ProfileSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Profile
+        fields = '__all__'
         
 
