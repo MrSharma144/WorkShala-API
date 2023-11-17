@@ -13,6 +13,7 @@ import jwt
 from django.conf import settings
 from drf_yasg.utils import swagger_auto_schema
 from drf_yasg import openapi
+from django.contrib.auth.models import User
 
 
  #Create your views here.
@@ -28,7 +29,7 @@ class RegisterView(generics.GenericAPIView):
         serializer.save()
 
         user_data = serializer.data
-        user=User.objects.get(email=user_data['email'])
+        user = User.objects.user_manager_method(email=user_data['email'])
 
         token = RefreshToken.for_user(user).access_token
 
@@ -95,4 +96,4 @@ class ProfileListCreateAPIView(generics.ListCreateAPIView):
 class ProfileDetailAPIView(generics.RetrieveUpdateDestroyAPIView):
     queryset = Profile.objects.all()
     serializer_class = ProfileSerializer
-
+    lookup_field = 'user__id'

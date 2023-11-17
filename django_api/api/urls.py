@@ -12,5 +12,5 @@ urlpatterns = [
     path('email-verify/', VerifyEmail.as_view(), name='email-verify'),
     path('login/',LoginAPIView.as_view(),name= 'login'),
     path('profiles/', ProfileListCreateAPIView.as_view(), name='profile-list-create'),
-    path('profiles/<int:pk>/', ProfileDetailAPIView.as_view(), name='profile-detail'),
+    path('profiles/<int:user__id>/', ProfileDetailAPIView.as_view(), name='profile-detail'),
 ]
