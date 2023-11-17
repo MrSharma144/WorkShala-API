@@ -25,6 +25,7 @@ class Internship(models.Model):
 class ApplyIntern(models.Model):
     username = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     intern_id = models.ForeignKey(Internship, on_delete=models.CASCADE)
+    fullname = models.CharField(max_length=20,default="Full Name")
     Graduation_name = models.CharField(max_length=255)
     year_of_study = models.IntegerField(default=1)
     cover_letter = models.TextField()
