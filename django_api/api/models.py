@@ -61,7 +61,7 @@ class User(AbstractBaseUser,PermissionsMixin):
           }
     
 class Profile(models.Model):
-    username = models.ForeignKey(User, on_delete=models.CASCADE)
+    username = models.ForeignKey(User, to_field='username', on_delete=models.CASCADE)
     fullname = models.CharField(max_length=25,default='Your_Name')
     bio = models.TextField(blank=True, null=True)
     phone_number = models.CharField(max_length=15, blank=True, null=True)
