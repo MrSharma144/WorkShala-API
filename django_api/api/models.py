@@ -70,4 +70,4 @@ class Profile(models.Model):
     experience = models.TextField(blank=True, null=True)
 
     def _str_(self):
-        return self.user.username
+        return f'{self.user.username} Profile'
