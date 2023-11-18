@@ -29,7 +29,7 @@ class RegisterView(generics.GenericAPIView):
         serializer.save()
 
         user_data = serializer.data
-        user = User.objects.user_manager_method(email=user_data['email'])
+        user = User.objects.get(email=user_data['email'])
 
         token = RefreshToken.for_user(user).access_token
 
