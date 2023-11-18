@@ -92,7 +92,7 @@ class VerifyEmail(views.APIView):
 class ProfileListCreateAPIView(generics.ListCreateAPIView):
     queryset = Profile.objects.all()
     serializer_class = ProfileSerializer
-     lookup_field = 'user__id'
+    lookup_field = 'user__id'
 
 class ProfileDetailAPIView(generics.RetrieveUpdateDestroyAPIView):
     queryset = Profile.objects.all()
