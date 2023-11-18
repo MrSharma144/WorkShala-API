@@ -5,7 +5,7 @@ from rest_framework.response import Response
 from .serializers import RegisterSerlizer,EmailVerificationSerializer,LoginSerializer,ProfileSerializer
 from rest_framework import generics,status,views
 from rest_framework_simplejwt.tokens import RefreshToken
-from .models import User,Profile
+from api.models import User,Profile
 from .utils import Util
 from django.contrib.sites.shortcuts import get_current_site
 from django.urls import reverse
@@ -13,7 +13,7 @@ import jwt
 from django.conf import settings
 from drf_yasg.utils import swagger_auto_schema
 from drf_yasg import openapi
-from django.contrib.auth.models import User
+
 
 
  #Create your views here.
