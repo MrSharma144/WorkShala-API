@@ -29,7 +29,7 @@ SECRET_KEY = 'django-insecure-2s_csjv=!lmp&-18x$n-98-g)lw@nq)o3j1yue#3dt3mr*q6-*
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1', 'localhost', "workshala-api.onrender.com"]
+ALLOWED_HOSTS = ['localhost', ".vercel.app"]
 
 
 
@@ -93,6 +93,8 @@ WSGI_APPLICATION = 'django_api.wsgi.application'
 DATABASES= {
     "default": dj_database_url.parse(os.getenv("DATABASE_URL"))
 }
+
+DATABASES["default"]=dj_database_url.parse("postgresql://workshala_database_boh7_user:pk11VRn3UeTHjo9Jg1q0pKRAC9GXRu3I@dpg-d1cl1aeuk2gs73as2j90-a.oregon-postgres.render.com/workshala_database_boh7")
 
     
 
