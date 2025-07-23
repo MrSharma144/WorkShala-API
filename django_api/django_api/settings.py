@@ -28,7 +28,7 @@ SECRET_KEY = os.getenv("SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.getenv("DEBUG")
 
-ALLOWED_HOSTS = ['localhost', ".vercel.app"]
+ALLOWED_HOSTS = ['*']
 
 
 
@@ -89,11 +89,12 @@ WSGI_APPLICATION = 'django_api.wsgi.application'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
 
+
 DATABASES= {
     "default": dj_database_url.parse(os.getenv("DATABASE_URL"))
 }
 
-DATABASES["default"]=dj_database_url.parse("postgresql://workshala_database_boh7_user:pk11VRn3UeTHjo9Jg1q0pKRAC9GXRu3I@dpg-d1cl1aeuk2gs73as2j90-a.oregon-postgres.render.com/workshala_database_boh7")
+#DATABASES["default"]=dj_database_url.parse("postgresql://workshala_database_boh7_user:pk11VRn3UeTHjo9Jg1q0pKRAC9GXRu3I@dpg-d1cl1aeuk2gs73as2j90-a.oregon-postgres.render.com/workshala_database_boh7")
 
     
 
